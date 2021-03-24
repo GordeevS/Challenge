@@ -1,0 +1,4 @@
+vamk\fi\demo\model\License.class
+vamk\fi\demo\controller\LicenseController.class
+vamk\fi\demo\DemoApplication.class
+vamk\fi\demo\repository\LicenseRepository.class
