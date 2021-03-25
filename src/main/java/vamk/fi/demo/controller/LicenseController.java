@@ -38,7 +38,7 @@ public class LicenseController {
     public License insertLicense(@RequestBody License licenseNew) {         //initialize new object through the request body
         Date newDate = new Date(Calendar.getInstance().getTime().getTime());        //create a current date into Date formart
      
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");     //specify the date format  
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");     //specify the date format  
         String dati = df.format(newDate);                       //convert Date format into String format
         licenseNew.setQueriedAt(dati);                          //set our date into our object
         return licenseRepository.save(licenseNew);              //return created object into repository
