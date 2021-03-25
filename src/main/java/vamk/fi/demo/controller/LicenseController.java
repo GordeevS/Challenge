@@ -10,6 +10,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 
 @RestController     //we tell to spring that these are class controller
 @RequestMapping("/api/license")     //specify the directory of local host
@@ -27,6 +28,11 @@ public class LicenseController {
     public List<License> getAllLicenses() {
         return licenseRepository.findAll();
     }
+
+    @GetMapping( path = "{id}")     //search by ID method
+    public License findById (@PathVariable("id")int id) {       //PathVariable is to tell SpringBoot that path variable must be assigned to the argument ID
+        return licenseRepository.findById(id).orElse(null);     //orElse(null) in order not to receive error when ID is not valid
+    } 
 
     @PostMapping    //for POST method
     public License insertLicense(@RequestBody License licenseNew) {         //initialize new object through the request body
